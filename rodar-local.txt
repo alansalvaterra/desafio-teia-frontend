@@ -1,0 +1,17 @@
+para fazer o readme.md
+
+
+Copiar o projeto para repositório local:
+git clone https://github.com/alansalvaterra/desafio-teia-frontend.git
+
+Instalar o Angular:
+npm install -g @angular/cli@14.0.0
+
+Na raiz do projeto, para garantir que todas as dependências do projeto estejam instaladas corretamente.:
+npm install
+
+Iniciar um servidor de desenvolvimento local:
+ng serve
+
+No navegador:
+http://localhost:4200/

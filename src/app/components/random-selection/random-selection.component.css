@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container {
+  margin: 10px;
+  position: relative;
+  width: 250px; /* Definir uma largura fixa para cada container */
+}
+
+.image-container img {
+  width: 100%; /* Garantir que a imagem ocupe toda a largura do container */
+  height: auto; /* Manter a proporção original da imagem */
+}
+
+.image-details {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: auto; /* Para empurrar para o final do contêiner */
+  width: 100%;
+  text-align: left;
+}
+
+
