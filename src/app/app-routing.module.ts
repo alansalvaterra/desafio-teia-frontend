@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { RandomSelectionComponent } from './components/random-selection/random-selection.component';
+import { StandardSelectionComponent } from './components/standard-selection/standard-selection.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'randomselection',
     component: RandomSelectionComponent
+  },
+  {
+    path: 'standardselection',
+    component: StandardSelectionComponent
   }
 
 ];

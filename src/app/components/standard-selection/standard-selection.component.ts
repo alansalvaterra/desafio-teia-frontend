@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-standard-selection',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StandardSelectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
   }
 
 }

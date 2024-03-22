@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/randomselection']);
   }
 
-  navigateToSelection(): void {
-    this.router.navigate(['/selection']);
+  navigateToStandard(): void {
+    this.router.navigate(['/standardselection']);
   }
 
   private chunkArray(array: any[], size: number): any[][] {

@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { RandomSelectionComponent } from './components/random-selection/random-selection.component';
 import { StandardSelectionComponent } from './components/standard-selection/standard-selection.component';
-import { ShowImagesComponent } from './components/show-images/show-images.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -19,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     RandomSelectionComponent,
     StandardSelectionComponent,
-    ShowImagesComponent,
     HeaderComponent,
     FooterComponent,
   ],
