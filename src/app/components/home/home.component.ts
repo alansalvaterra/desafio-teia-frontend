@@ -52,4 +52,8 @@ export class HomeComponent implements OnInit {
     }
     return chunkedArray;
   }
+
+  downloadImage(image: ImageData) {
+    window.open(image.url, '_blank');
+  }
 }

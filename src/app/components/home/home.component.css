@@ -50,3 +50,7 @@
   color: #ff0000; /* Cor vermelha */
   font-size: 24px; /* Tamanho do ícone */
 }
+
+.favorite-icon {
+  margin: 5px;
+}

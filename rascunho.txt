@@ -2,10 +2,9 @@ Funcionalidades:
 - Ilustração das imagens em 2 formas:
 	OK a) Número de imagens aleatórias informado pelo usuário
 	b) Seleção pelo usuário com as informações de id, album, etc.
+OK - Salvar a imagem em favoritos
+OK - Link para download [PENDENTE DOWNLOAD AUTOMATICO]
 - Ordenação (Album, Id, Título)
 - Paginação para grandes conjutos de dados
-OK - Salvar a imagem em favoritos
 - Excluir imagem em favoritos
-- Link para download
-- Link para compartilhar com a API do whatsApp
 - Layout, tema claro e escuro, etc

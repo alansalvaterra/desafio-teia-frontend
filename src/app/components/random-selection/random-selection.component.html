@@ -20,6 +20,9 @@
         <button class="favorite-icon" (click)="toggleFavorite(image)">
           <i class="far fa-heart" [ngClass]="{'fas': image.favorite, 'far': !image.favorite}"></i>
         </button>
+        <button class="download-icon" (click)="downloadImage(image)">
+          <i class="fa-regular fa-circle-down"></i>
+        </button>
       </div>
       <div class="image-details">
         <p>Título: {{image.title}}</p>

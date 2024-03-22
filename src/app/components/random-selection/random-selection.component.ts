@@ -20,7 +20,8 @@ export interface ImageData {
   templateUrl: './random-selection.component.html',
   styleUrls: ['./random-selection.component.css']
 })
-export class RandomSelectionComponent implements OnInit { // Implemente a interface OnInit
+
+export class RandomSelectionComponent implements OnInit {
   numberOfImages: number = 0;
   imageSize: string = 'small';
   randomImages: ImageData[] = [];
@@ -30,11 +31,11 @@ export class RandomSelectionComponent implements OnInit { // Implemente a interf
   constructor(
     private http: HttpClient,
     private router: Router,
-    private favoriteService: FavoriteService // Injete o serviço
+    private favoriteService: FavoriteService
   ) { }
 
   ngOnInit() {
-    this.getRandomImages(); // Chame a função para carregar as imagens quando o componente for inicializado
+    this.getRandomImages();
   }
 
   getRandomImages() {
@@ -56,18 +57,17 @@ export class RandomSelectionComponent implements OnInit { // Implemente a interf
           imageUrl: this.imageSize === 'small' ? response.thumbnailUrl : response.url,
           thumbnailUrl: response.thumbnailUrl,
           url: response.url,
-          favorite: false // Inicialmente, nenhuma imagem é favorita
+          favorite: false
         }));
 
-        // Divide as imagens em pedaços de 4
         this.randomImagesChunks = this.chunkArray(this.randomImages, 4);
       });
     }
   }
 
   toggleFavorite(image: ImageData) {
-    image.favorite = !image.favorite; // Inverte o estado de favorito da imagem
-    this.favoriteService.toggleFavorite(image); // Chama a função do serviço para atualizar a lista de favoritos
+    image.favorite = !image.favorite;
+    this.favoriteService.toggleFavorite(image);
   }
 
   generateRandomIds(amount: number, maxId: number): number[] {
@@ -103,5 +103,12 @@ export class RandomSelectionComponent implements OnInit { // Implemente a interf
 
   hideImageDetails() {
     this.selectedImage = null;
+  }
+
+  downloadImage(image: ImageData) {
+    const imageSizeSelector = document.getElementById('imageSize') as HTMLSelectElement;
+    const selectedSize = imageSizeSelector.value;
+    const imageUrl = selectedSize === 'small' ? image.thumbnailUrl : image.url;
+    window.open(imageUrl, '_blank');
   }
 }
