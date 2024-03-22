@@ -3,15 +3,50 @@
   margin-top: 50px;
 }
 
-.buttons {
+.image-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+}
+
+.image-row {
+  display: flex;
+}
+
+.image-item {
+  margin: 10px;
+  position: relative;
+  width: 250px;
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+}
+
+.image-details {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
 }
 
 .btn {
-  margin: 0 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+  margin: 10px;
+}
+
+/* Adicione estilos para o ícone de remoção */
+.remove-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
   cursor: pointer;
+}
+
+.remove-icon i {
+  color: #ff0000; /* Cor vermelha */
+  font-size: 24px; /* Tamanho do ícone */
 }

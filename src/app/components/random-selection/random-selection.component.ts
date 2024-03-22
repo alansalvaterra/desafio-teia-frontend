@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { FavoriteService } from 'src/app/services/favorite-service.service';
 
-interface ImageData {
+export interface ImageData {
   albumId: number;
   id: number;
   title: string;
   imageUrl: string;
   thumbnailUrl: string;
   url: string;
+  favorite?: boolean;
 }
 
 @Component({
@@ -18,14 +20,22 @@ interface ImageData {
   templateUrl: './random-selection.component.html',
   styleUrls: ['./random-selection.component.css']
 })
-export class RandomSelectionComponent {
+export class RandomSelectionComponent implements OnInit { // Implemente a interface OnInit
   numberOfImages: number = 0;
   imageSize: string = 'small';
   randomImages: ImageData[] = [];
   randomImagesChunks: ImageData[][] = [];
   selectedImage: ImageData | null = null;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private favoriteService: FavoriteService // Injete o serviço
+  ) { }
+
+  ngOnInit() {
+    this.getRandomImages(); // Chame a função para carregar as imagens quando o componente for inicializado
+  }
 
   getRandomImages() {
     if (this.numberOfImages && this.numberOfImages > 0) {
@@ -45,13 +55,19 @@ export class RandomSelectionComponent {
           title: response.title,
           imageUrl: this.imageSize === 'small' ? response.thumbnailUrl : response.url,
           thumbnailUrl: response.thumbnailUrl,
-          url: response.url
+          url: response.url,
+          favorite: false // Inicialmente, nenhuma imagem é favorita
         }));
 
         // Divide as imagens em pedaços de 4
         this.randomImagesChunks = this.chunkArray(this.randomImages, 4);
       });
     }
+  }
+
+  toggleFavorite(image: ImageData) {
+    image.favorite = !image.favorite; // Inverte o estado de favorito da imagem
+    this.favoriteService.toggleFavorite(image); // Chama a função do serviço para atualizar a lista de favoritos
   }
 
   generateRandomIds(amount: number, maxId: number): number[] {

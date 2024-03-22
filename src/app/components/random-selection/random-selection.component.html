@@ -16,6 +16,11 @@
   <div *ngFor="let chunk of randomImagesChunks" class="image-row">
     <div class="image-container" *ngFor="let image of chunk">
       <img [src]="image.imageUrl" alt="Imagem {{image.id}}">
+      <div class="image-actions">
+        <button class="favorite-icon" (click)="toggleFavorite(image)">
+          <i class="far fa-heart" [ngClass]="{'fas': image.favorite, 'far': !image.favorite}"></i>
+        </button>
+      </div>
       <div class="image-details">
         <p>Título: {{image.title}}</p>
         <p>Album ID: {{image.albumId}}</p>
@@ -23,6 +28,9 @@
       </div>
     </div>
   </div>
+
+
+
 
 
   <button (click)="navigateToHome()" class="btn">Voltar para Home</button>

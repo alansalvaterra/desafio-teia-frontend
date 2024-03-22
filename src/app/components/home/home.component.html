@@ -6,7 +6,16 @@
     <button (click)="navigateToRandom()" class="btn">Ilustração Aleatória</button>
   </div>
   <h2>Imagens Favoritadas</h2>
-  <div>
-    <!-- imagens favoritas -->
+  <div class="image-container">
+    <div class="image-row" *ngFor="let chunk of favoritedImagesChunks">
+      <div class="image-item" *ngFor="let image of chunk">
+        <img [src]="image.imageUrl" alt="Imagem {{image.id}}">
+        <div class="image-details">
+          <p>Título: {{image.title}}</p>
+          <p>Album ID: {{image.albumId}}</p>
+          <p>ID: {{image.id}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
