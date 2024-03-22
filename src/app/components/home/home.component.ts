@@ -11,6 +11,8 @@ import { ImageData } from '../random-selection/random-selection.component';
 export class HomeComponent implements OnInit {
   favoritedImages: ImageData[] = [];
   favoritedImagesChunks: ImageData[][] = [];
+  currentPage: number = 1;
+  pageSize: number = 8; // Define o número de imagens por página
 
   constructor(
     private router: Router,
@@ -19,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.favoritedImages = this.favoriteService.getFavoritedImages();
-    this.favoritedImagesChunks = this.chunkArray(this.favoritedImages, 4);
+    this.updatePage();
   }
 
   toggleFavorite(image: ImageData) {
@@ -34,7 +36,7 @@ export class HomeComponent implements OnInit {
   removeFavorite(image: ImageData) {
     this.favoriteService.removeFavorite(image);
     this.favoritedImages = this.favoriteService.getFavoritedImages();
-    this.favoritedImagesChunks = this.chunkArray(this.favoritedImages, 4);
+    this.updatePage();
   }
 
   navigateToRandom() {
@@ -43,6 +45,26 @@ export class HomeComponent implements OnInit {
 
   navigateToStandard(): void {
     this.router.navigate(['/standardselection']);
+  }
+
+  private updatePage() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.favoritedImagesChunks = this.chunkArray(this.favoritedImages.slice(startIndex, startIndex + this.pageSize), 4);
+  }
+
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage = page;
+      this.updatePage();
+    }
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.favoritedImages.length / this.pageSize);
+  }
+
+  totalPagesArray(): number[] {
+    return Array.from({ length: this.totalPages() }, (_, index) => index + 1);
   }
 
   private chunkArray(array: any[], size: number): any[][] {

@@ -6,6 +6,12 @@
     <button (click)="navigateToRandom()" class="btn">Ilustração Aleatória</button>
   </div>
   <h2>Imagens Favoritadas</h2>
+
+  <!-- Adição dos botões de paginação -->
+  <div class="pagination">
+    <button class="btn" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
+  </div>
+
   <div class="image-container">
     <div class="image-row" *ngFor="let chunk of favoritedImagesChunks">
       <div class="image-item" *ngFor="let image of chunk">
@@ -18,8 +24,8 @@
         <button class="favorite-icon" (click)="downloadImage(image)">
           <i class="fa-regular fa-circle-down"></i>
         </button>
-
       </div>
     </div>
   </div>
+
 </div>

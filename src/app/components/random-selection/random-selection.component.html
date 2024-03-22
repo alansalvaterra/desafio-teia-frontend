@@ -13,6 +13,10 @@
     <button type="submit" class="btn">Obter Imagens</button>
   </form>
 
+  <div class="pagination">
+    <button class="btn" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
+  </div>
+
   <div *ngFor="let chunk of randomImagesChunks" class="image-row">
     <div class="image-container" *ngFor="let image of chunk">
       <img [src]="image.imageUrl" alt="Imagem {{image.id}}">
@@ -31,6 +35,7 @@
       </div>
     </div>
   </div>
+
 
   <button (click)="navigateToHome()" class="btn">Voltar para Home</button>
 </div>

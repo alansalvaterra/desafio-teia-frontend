@@ -20,13 +20,14 @@ export interface ImageData {
   templateUrl: './random-selection.component.html',
   styleUrls: ['./random-selection.component.css']
 })
-
 export class RandomSelectionComponent implements OnInit {
   numberOfImages: number = 0;
   imageSize: string = 'small';
   randomImages: ImageData[] = [];
   randomImagesChunks: ImageData[][] = [];
   selectedImage: ImageData | null = null;
+  currentPage: number = 1;
+  pageSize: number = 8; // Definindo o tamanho da página
 
   constructor(
     private http: HttpClient,
@@ -60,9 +61,31 @@ export class RandomSelectionComponent implements OnInit {
           favorite: false
         }));
 
-        this.randomImagesChunks = this.chunkArray(this.randomImages, 4);
+        // Atualiza os chunks de imagens com base na página atual
+        this.updateImageChunks();
       });
     }
+  }
+
+  updateImageChunks() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.randomImagesChunks = this.chunkArray(this.randomImages.slice(startIndex, endIndex), 4);
+  }
+
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage = page;
+      this.updateImageChunks();
+    }
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.randomImages.length / this.pageSize);
+  }
+
+  totalPagesArray(): number[] {
+    return Array.from({ length: this.totalPages() }, (_, i) => i + 1);
   }
 
   toggleFavorite(image: ImageData) {
