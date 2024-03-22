@@ -1,10 +1,14 @@
 # Desafio Frontend - TEIA
 ## Decrição
-O Projeto é uma aplicação frontend desenvolvida utilizando Angular, que consome a API disponibilizada pelo desafio e exibe os dados de forma dinâmica em uma interface amigável e responsiva.
-
-Para mais informações, a especificação o desafio pode ser acessada através do link abaixo:
+O Projeto é uma aplicação frontend desenvolvida utilizando Angular, que consome a API disponibilizada pelo desafio e exibe os dados de forma dinâmica em uma interface amigável e responsiva. Para mais informações, a especificação o desafio pode ser acessada através do link abaixo:
 
 [**Especificação - Desafio Dev Frontend**](https://github.com/alansalvaterra/desafio-teia-frontend/blob/main/especificacao.pdf)
+
+## Visualização da aplicação:
+
+<p align="center">
+  <img src="./src/assets/Animação.gif" alt=".gif do site">
+</p>
 
 ## Funcionalidades
 - A aplicação permite a visualização de imagens retornadas pela API de 2 formas:
