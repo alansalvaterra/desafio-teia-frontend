@@ -1,4 +1,22 @@
 <div class="container">
-  <h2>Em desenvolvimento!</h2>
+  <h2>Seleção Padrão de Imagens</h2>
+  <label for="imageId">Digite o ID da Imagem (de 1 a 5000):</label>
+  <input type="number" id="imageId" name="imageId" [(ngModel)]="imageId" required min="1" max="5000">
+  <br>
+  <label for="imageSize">Selecione o tamanho da imagem:</label>
+  <select id="imageSize" name="imageSize" (change)="onSizeChange($event)">
+    <option value="pequeno">Pequeno</option>
+    <option value="grande">Grande</option>
+  </select>
+
+  <div *ngIf="selectedImage" class="image-container">
+    <img [src]="getImageUrl()" alt="Imagem {{selectedImage.id}}">
+    <div class="image-details">
+      <p>Título: {{selectedImage.title}}</p>
+      <p>Album ID: {{selectedImage.albumId}}</p>
+      <p>ID: {{selectedImage.id}}</p>
+    </div>
+  </div>
+  <button (click)="getImageById()" class="btn">Buscar Imagem</button>
   <button (click)="navigateToHome()" class="btn">Voltar para Home</button>
 </div>
