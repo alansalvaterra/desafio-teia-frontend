@@ -74,3 +74,11 @@ select {
   color: red;
   margin-top: 10px;
 }
+
+h3 {
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 20px;
+}
