@@ -78,4 +78,8 @@ export class HomeComponent implements OnInit {
   downloadImage(image: ImageData) {
     window.open(image.url, '_blank');
   }
+
+  clearFavorites() {
+    this.favoritedImages = [];
+  }
 }

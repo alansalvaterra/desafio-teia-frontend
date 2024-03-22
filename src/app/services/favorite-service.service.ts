@@ -37,4 +37,8 @@ export class FavoriteService {
   getFavoritedImages(): ImageData[] {
     return this.favoritedImages;
   }
+
+  clearFavorites() {
+    this.favoritedImages = [];
+  }
 }

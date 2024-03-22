@@ -9,7 +9,7 @@ O Projeto é uma aplicação frontend desenvolvida utilizando Angular, que conso
 
   ii. Seleção informando os dados da imagem
   
-- Permite salvar em favoritos as imagens localizadas
+- Salvar/Remover de favoritos as imagens preferidas
 - Link para download da imagem
 - Paginação com limite de até 8 imagens
 - Responsividade à desktops e aparelhos mobiles
