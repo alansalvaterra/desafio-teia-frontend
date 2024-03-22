@@ -1,5 +1,36 @@
 .container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  max-width: 90%;
+}
+
+h2 {
+  font-size: 28px;
+  color: #1a237e;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #0d47a1;
 }

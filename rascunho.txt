@@ -5,6 +5,6 @@ Funcionalidades:
 OK - Salvar a imagem em favoritos
 OK - Link para download [PENDENTE DOWNLOAD AUTOMATICO]
 - Ordenação (Album, Id, Título)
-- Paginação para grandes conjutos de dados
+OK - Paginação - 8 imagens por página
 - Excluir imagem em favoritos
 - Layout, tema claro e escuro, etc

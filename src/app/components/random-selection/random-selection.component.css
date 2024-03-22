@@ -1,38 +1,137 @@
 .container {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+}
+
+h1 {
+  font-size: 28px;
+  color: #1a237e;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
   text-align: center;
-  margin-top: 50px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+}
+
+select,
+input[type="number"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  min-width: 150px;
+}
+
+.btn:hover {
+  background-color: #0d47a1;
+}
+
+.pagination {
+  margin-bottom: 20px;
+}
+
+.btn-pagination {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 16px;
+  background-color: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-pagination:hover,
+.btn-pagination.active {
+  background-color: #0d47a1;
 }
 
 .image-row {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .image-container {
   margin: 10px;
-  position: relative;
-  width: 250px; /* Definir uma largura fixa para cada container */
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.image-container:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .image-container img {
-  width: 100%; /* Garantir que a imagem ocupe toda a largura do container */
-  height: auto; /* Manter a proporção original da imagem */
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.image-actions {
+  margin-top: 10px;
+}
+
+.favorite-icon,
+.download-icon {
+  background-color: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+}
+
+.favorite-icon:hover,
+.download-icon:hover {
+  background-color: #0d47a1;
 }
 
 .image-details {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: auto; /* Para empurrar para o final do contêiner */
-  width: 100%;
-  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
 }
 
-.btn {
-  margin: 10px;
-}
-
-.favorite-icon {
-  margin: 5px;
+.btn-back {
+  margin-top: 20px;
 }

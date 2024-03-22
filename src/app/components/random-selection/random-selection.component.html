@@ -10,12 +10,8 @@
     <label for="numberOfImages">Quantidade de Imagens:</label>
     <input type="number" id="numberOfImages" name="numberOfImages" [(ngModel)]="numberOfImages" required>
     <br><br>
-    <button type="submit" class="btn">Obter Imagens</button>
+    <button type="submit" class="btn">Sortear Imagens</button>
   </form>
-
-  <div class="pagination">
-    <button class="btn" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
-  </div>
 
   <div *ngFor="let chunk of randomImagesChunks" class="image-row">
     <div class="image-container" *ngFor="let image of chunk">
@@ -36,6 +32,9 @@
     </div>
   </div>
 
+  <div class="pagination">
+    <button class="btn-pagination" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
+  </div>
 
-  <button (click)="navigateToHome()" class="btn">Voltar para Home</button>
+  <button (click)="navigateToHome()" class="btn">Voltar</button>
 </div>
