@@ -113,3 +113,17 @@ h2 {
 .favorite-icon:hover {
   background-color: #0d47a1;
 }
+
+.disclaimer {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.disclaimer-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+

@@ -1,14 +1,15 @@
 <div class="container">
-  <h1>Imagens TEIA</h1>
-  <h2>Selecione a categoria desejada:</h2>
+  <h1>Seletor de Imagens - TEIA</h1>
   <div class="buttons">
     <button (click)="navigateToRandom()" class="btn">Seleção Aleatória</button>
     <button (click)="navigateToStandard()" class="btn">Seleção Individual</button>
   </div>
+
   <h2>Favoritas:</h2>
 
+<!-- Verifica se há imagens favoritas -->
+<div *ngIf="favoritedImages.length > 0; else noFavorites">
   <!-- Adição dos botões de paginação -->
-
   <div class="image-container">
     <div class="image-row" *ngFor="let chunk of favoritedImagesChunks">
       <div class="image-item" *ngFor="let image of chunk">
@@ -24,6 +25,15 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Mensagem exibida quando não houver imagens favoritas -->
+<ng-template #noFavorites>
+  <div class="disclaimer">
+    <p class="disclaimer-text">Selecione as suas imagens favoritas para aparecerem aqui!</p>
+  </div>
+
+</ng-template>
 
   <div class="pagination">
     <button class="btn-paginacao" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
