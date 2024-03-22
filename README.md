@@ -13,7 +13,7 @@ O Projeto é uma aplicação frontend desenvolvida utilizando Angular, que conso
 ## Funcionalidades
 - A aplicação permite a visualização de imagens retornadas pela API de 2 formas:
 
-  i.  Retorno aleatório informando o número de imagens a serem retornadas
+  i.  Modo aleatório informando o número de imagens a serem retornadas
 
   ii. Seleção informando os dados da imagem
   
