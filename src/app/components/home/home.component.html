@@ -5,23 +5,23 @@
     <button (click)="navigateToStandard()" class="btn">Seleção Individual</button>
   </div>
 
-  <h2>Imagens Favoritas:</h2>
+  <h2 class="favorite-heading">Imagens Favoritas:</h2>
+
 
 <!-- Verifica se há imagens favoritas -->
 <div *ngIf="favoritedImages.length > 0; else noFavorites">
-  <!-- Adição dos botões de paginação -->
   <div class="image-container">
     <div class="image-row" *ngFor="let chunk of favoritedImagesChunks">
       <div class="image-item" *ngFor="let image of chunk">
         <img [src]="image.imageUrl" alt="Imagem {{image.id}}">
-        <div class="image-details">
-          <p>Título: {{image.title}}</p>
-          <p>Album ID: {{image.albumId}}</p>
-          <p>ID: {{image.id}}</p>
-        </div>
         <button class="favorite-icon" (click)="downloadImage(image)">
           <i class="fa-regular fa-circle-down"></i>
         </button>
+        <div class="image-details">
+          <p><b>Título:</b> {{image.title}}</p>
+          <p><b>Album ID:</b> {{image.albumId}}</p>
+          <p><b>ID:</b> {{image.id}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -30,11 +30,12 @@
 <!-- Mensagem exibida quando não houver imagens favoritas -->
 <ng-template #noFavorites>
   <div class="disclaimer">
-    <p class="disclaimer-text">Selecione as suas imagens favoritas para aparecerem aqui!</p>
+    <p class="disclaimer-text">Suas imagens favoritas aparecerão aqui!</p>
   </div>
 
 </ng-template>
 
+  <!-- Adição dos botões de paginação -->
   <div class="pagination">
     <button class="btn-paginacao" *ngFor="let page of totalPagesArray()" (click)="changePage(page)" [class.active]="page === currentPage">{{ page }}</button>
   </div>

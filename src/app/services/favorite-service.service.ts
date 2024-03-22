@@ -11,14 +11,14 @@ export class FavoriteService {
 
   addFavorite(image: ImageData) {
     this.favoritedImages.push(image);
-    image.favorite = true; // Define a imagem como favorita
+    image.favorite = true;
   }
 
   removeFavorite(image: ImageData) {
     const index = this.favoritedImages.findIndex(img => img.id === image.id);
     if (index !== -1) {
       this.favoritedImages.splice(index, 1);
-      image.favorite = false; // Remove a marcação de favorito da imagem
+      image.favorite = false;
     }
   }
 

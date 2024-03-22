@@ -17,8 +17,8 @@ export interface ImageData {
   styleUrls: ['./standard-selection.component.css']
 })
 export class StandardSelectionComponent implements OnInit {
-  imageId: number | null = null; // Alterado para permitir valor nulo
-  imageSize: 'pequeno' | 'grande' = 'pequeno'; // Inicializa com 'pequeno' como padrão
+  imageId: number | null = null;
+  imageSize: 'pequeno' | 'grande' = 'pequeno';
   selectedImage: ImageData | null = null;
 
   constructor(
@@ -30,11 +30,11 @@ export class StandardSelectionComponent implements OnInit {
   }
 
   getImageById() {
-    if (this.imageId !== null && this.imageId >= 1 && this.imageId <= 5000) { // Verifica se imageId não é nulo
+    if (this.imageId !== null && this.imageId >= 1 && this.imageId <= 5000) {
       this.http.get<ImageData>(`https://jsonplaceholder.typicode.com/photos/${this.imageId}`)
         .subscribe(
           (imageData: ImageData) => {
-            this.selectedImage = { ...imageData, imageSize: this.imageSize }; // Define o tamanho selecionado
+            this.selectedImage = { ...imageData, imageSize: this.imageSize };
           },
           (error) => {
             console.error('Erro ao buscar imagem:', error);
@@ -50,7 +50,7 @@ export class StandardSelectionComponent implements OnInit {
   onSizeChange(event: any) {
     this.imageSize = event.target.value;
     if (this.selectedImage) {
-      this.selectedImage.imageSize = this.imageSize; // Atualiza o tamanho selecionado se houver uma imagem selecionada
+      this.selectedImage.imageSize = this.imageSize;
     }
   }
 
@@ -58,9 +58,8 @@ export class StandardSelectionComponent implements OnInit {
     if (this.selectedImage) {
       return this.selectedImage.imageSize === 'grande' ? this.selectedImage.url : this.selectedImage.thumbnailUrl ?? '';
     }
-    return ''; // Retorna uma string vazia se selectedImage for nulo
+    return '';
   }
-
 
   navigateToHome() {
     this.router.navigate(['/home']);
