@@ -4,6 +4,7 @@ O Projeto é uma aplicação frontend desenvolvida utilizando Angular, que conso
 
 [**Especificação - Desafio Dev Frontend**](https://github.com/alansalvaterra/desafio-teia-frontend/blob/main/especificacao.pdf)
 
+
 ## Visualização da aplicação:
 
 <p align="center">
@@ -51,8 +52,11 @@ Abra seu terminal e clone o repositório para o seu ambiente local usando o segu
 
 **4º Passo** - Inicie o servidor de desenvolvimento local:
 
-    npm serve
+    ng serve
 
 **5º Passo** - Após a inicialização, seu projeto estará disponível em seu navegador no endereço:
 
     http://localhost:4200/
+
+### Prazo para desenvolvimento:
+2 dias
